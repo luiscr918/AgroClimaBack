@@ -1,9 +1,9 @@
-package controller;
+package com.itsqmet.agroClima.controller;
 
-import entity.Siembra;
+import com.itsqmet.agroClima.entity.Siembra;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.SiembraService;
+import com.itsqmet.agroClima.service.SiembraService;
 
 import java.util.List;
 import java.util.Optional;

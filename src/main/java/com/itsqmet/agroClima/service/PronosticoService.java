@@ -1,9 +1,9 @@
-package service;
+package com.itsqmet.agroClima.service;
 
-import entity.Pronostico;
+import com.itsqmet.agroClima.entity.Pronostico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.PronosticoInterface;
+import com.itsqmet.agroClima.repository.PronosticoInterface;
 
 import java.util.List;
 import java.util.Optional;

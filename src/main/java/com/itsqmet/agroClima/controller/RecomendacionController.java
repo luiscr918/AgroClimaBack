@@ -1,9 +1,9 @@
-package controller;
+package com.itsqmet.agroClima.controller;
 
-import entity.Recomendacion;
+import com.itsqmet.agroClima.entity.Recomendacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.RecomendacionService;
+import com.itsqmet.agroClima.service.RecomendacionService;
 
 import java.util.List;
 import java.util.Optional;

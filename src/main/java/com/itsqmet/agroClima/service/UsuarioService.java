@@ -1,9 +1,9 @@
-package service;
+package com.itsqmet.agroClima.service;
 
-import entity.Usuario;
+import com.itsqmet.agroClima.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.UsuarioInterface;
+import com.itsqmet.agroClima.repository.UsuarioInterface;
 
 import java.util.List;
 import java.util.Optional;

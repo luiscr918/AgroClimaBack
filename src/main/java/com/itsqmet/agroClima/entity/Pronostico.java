@@ -1,4 +1,4 @@
-package entity;
+package com.itsqmet.agroClima.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;

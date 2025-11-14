@@ -1,9 +1,9 @@
-package controller;
+package com.itsqmet.agroClima.controller;
 
-import entity.Terreno;
+import com.itsqmet.agroClima.entity.Terreno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.TerrenoService;
+import com.itsqmet.agroClima.service.TerrenoService;
 
 import java.util.List;
 import java.util.Optional;

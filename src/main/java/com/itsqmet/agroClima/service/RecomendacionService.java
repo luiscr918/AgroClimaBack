@@ -1,9 +1,9 @@
-package service;
+package com.itsqmet.agroClima.service;
 
-import entity.Recomendacion;
+import com.itsqmet.agroClima.entity.Recomendacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.RecomendacionInterface;
+import com.itsqmet.agroClima.repository.RecomendacionInterface;
 
 import java.util.List;
 import java.util.Optional;

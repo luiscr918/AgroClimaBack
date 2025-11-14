@@ -1,9 +1,9 @@
-package controller;
+package com.itsqmet.agroClima.controller;
 
-import entity.Usuario;
+import com.itsqmet.agroClima.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.UsuarioService;
+import com.itsqmet.agroClima.service.UsuarioService;
 
 import java.util.List;
 import java.util.Optional;

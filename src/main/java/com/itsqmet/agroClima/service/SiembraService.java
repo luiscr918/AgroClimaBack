@@ -1,9 +1,9 @@
-package service;
+package com.itsqmet.agroClima.service;
 
-import entity.Siembra;
+import com.itsqmet.agroClima.entity.Siembra;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.SiembraInterface;
+import com.itsqmet.agroClima.repository.SiembraInterface;
 
 import java.util.List;
 import java.util.Optional;

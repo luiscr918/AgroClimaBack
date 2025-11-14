@@ -1,6 +1,6 @@
-package repository;
+package com.itsqmet.agroClima.repository;
 
-import entity.Siembra;
+import com.itsqmet.agroClima.entity.Siembra;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

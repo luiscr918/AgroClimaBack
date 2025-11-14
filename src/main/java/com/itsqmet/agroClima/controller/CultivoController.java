@@ -1,9 +1,9 @@
-package controller;
+package com.itsqmet.agroClima.controller;
 
-import entity.Cultivo;
+import com.itsqmet.agroClima.entity.Cultivo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.CultivoService;
+import com.itsqmet.agroClima.service.CultivoService;
 
 import java.util.List;
 import java.util.Optional;

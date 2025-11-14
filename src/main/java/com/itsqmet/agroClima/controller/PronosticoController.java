@@ -1,9 +1,9 @@
-package controller;
+package com.itsqmet.agroClima.controller;
 
-import entity.Pronostico;
+import com.itsqmet.agroClima.entity.Pronostico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.PronosticoService;
+import com.itsqmet.agroClima.service.PronosticoService;
 
 import java.util.List;
 import java.util.Optional;

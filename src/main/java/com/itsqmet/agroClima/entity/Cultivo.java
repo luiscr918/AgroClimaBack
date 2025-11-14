@@ -1,4 +1,4 @@
-package entity;
+package com.itsqmet.agroClima.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

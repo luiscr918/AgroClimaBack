@@ -1,6 +1,6 @@
-package entity;
+package com.itsqmet.agroClima.entity;
 
-import enums.Rol;
+import com.itsqmet.agroClima.enums.Rol;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

@@ -1,7 +1,7 @@
-package entity;
+package com.itsqmet.agroClima.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import enums.EstadoS;
+import com.itsqmet.agroClima.enums.EstadoS;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

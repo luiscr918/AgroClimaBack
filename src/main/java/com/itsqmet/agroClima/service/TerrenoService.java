@@ -1,9 +1,9 @@
-package service;
+package com.itsqmet.agroClima.service;
 
-import entity.Terreno;
+import com.itsqmet.agroClima.entity.Terreno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.TerrenoInterface;
+import com.itsqmet.agroClima.repository.TerrenoInterface;
 
 import java.util.List;
 import java.util.Optional;
