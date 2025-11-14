@@ -45,9 +45,17 @@ public class Usuario {
     private Rol rol;
     //CARDINALIDAD
     //con recomendaciones
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(
+            mappedBy = "usuario",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Recomendacion> recomendaciones;
     //con terreno
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(
+            mappedBy = "usuario",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Terreno> terrenos;
 }

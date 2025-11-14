@@ -30,9 +30,17 @@ public class Terreno {
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
     //con cultivos
-    @OneToMany(mappedBy = "terreno")
+    @OneToMany(
+            mappedBy = "terreno",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Cultivo> cultivos;
     //con pronostico
-    @OneToMany(mappedBy = "terreno")
+    @OneToMany(
+            mappedBy = "terreno",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Pronostico> pronosticos;
 }

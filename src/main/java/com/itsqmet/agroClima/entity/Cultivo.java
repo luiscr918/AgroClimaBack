@@ -28,6 +28,10 @@ public class Cultivo {
     @JoinColumn(name = "id_terreno")
     private Terreno terreno;
     //con siembra
-    @OneToMany(mappedBy = "cultivo")
+    @OneToMany(
+            mappedBy = "cultivo",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Siembra> siembras;
 }
