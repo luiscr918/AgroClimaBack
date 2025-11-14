@@ -1,0 +1,57 @@
+package controller;
+
+import entity.Recomendacion;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import service.RecomendacionService;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/recomendaciones")
+@CrossOrigin(origins = "http://localhost:4200")
+public class RecomendacionController {
+    @Autowired
+    private RecomendacionService recomendacionService;
+
+    //leer todos los recomendaciones
+    @GetMapping
+    public List<Recomendacion> mostrarRecomendacions() {
+        return recomendacionService.allRecomendaciones();
+    }
+
+    //guardar nuevo recomendacion
+    @PostMapping
+    public Recomendacion guardarRecomendacion(@RequestBody Recomendacion recomendacion) {
+        return recomendacionService.guardarRecomendacion(recomendacion);
+    }
+
+    //buscar recomendacion por id
+    @GetMapping("/{id}")
+    public Optional<Recomendacion> buscarRecomendacionId(@PathVariable Long id) {
+        return recomendacionService.buscarRecomendacionId(id);
+    }
+
+    //actualizar recomendacion
+    @PutMapping("/{id}")
+    public Recomendacion actualizarRecomendacion(@PathVariable Long id, @RequestBody Recomendacion recomendacion) {
+        Optional<Recomendacion> recomendacionOptional = recomendacionService.buscarRecomendacionId(id);
+        if (recomendacionOptional.isPresent()) {
+            Recomendacion recomendacionExistente = recomendacionOptional.get();
+            recomendacionExistente.setMensaje(recomendacion.getMensaje());
+            recomendacionExistente.setTipo(recomendacion.getTipo());
+            recomendacionExistente.setFecha_generacion(recomendacion.getFecha_generacion());
+            recomendacionExistente.setUsuario(recomendacion.getUsuario());
+            return recomendacionService.guardarRecomendacion(recomendacionExistente);
+        }
+        return null;
+    }
+
+    //eliminar recomendacion
+    @DeleteMapping("/{id}")
+    public void eliminarRecomendacion(@PathVariable Long id) {
+        recomendacionService.eliminarRecomendacion(id);
+    }
+
+}
