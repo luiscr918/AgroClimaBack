@@ -28,4 +28,8 @@ public class TerrenoService {
     public void eliminarTerreno(Long id){
         terrenoInterface.deleteById(id);
     }
+    //obtener los terrenos por usuario
+    public List<Terreno> obtenerTerrenosPorUsuario(Long usuarioId) {
+        return terrenoInterface.findByUsuarioId(usuarioId);
+    }
 }

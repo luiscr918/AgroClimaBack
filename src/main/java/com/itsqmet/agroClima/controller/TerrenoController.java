@@ -55,5 +55,10 @@ public class TerrenoController {
     public void eliminarTerreno(@PathVariable Long id) {
         terrenoService.eliminarTerreno(id);
     }
+    //obtener terrenos por usuario
+    @GetMapping("/usuario/{usuarioId}")
+    public List<Terreno> obtenerTerrenosPorUsuario(@PathVariable Long usuarioId) {
+        return terrenoService.obtenerTerrenosPorUsuario(usuarioId);
+    }
 
 }
