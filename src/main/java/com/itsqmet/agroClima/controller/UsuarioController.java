@@ -21,12 +21,6 @@ public class UsuarioController {
         return usuarioService.allUsuarios();
     }
 
-    //guardar nuevo usuario
-    @PostMapping
-    public Usuario guardarUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.guardarUsuario(usuario);
-    }
-
     //buscar usuario por id
     @GetMapping("/{id}")
     public Optional<Usuario> buscarUsuarioId(@PathVariable Long id) {

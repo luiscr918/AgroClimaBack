@@ -28,4 +28,8 @@ public class UsuarioService {
     public void eliminarUsuario(Long id){
         usuarioInterface.deleteById(id);
     }
+    //buscar por email
+    public Usuario buscarPorEmail(String email){
+        return usuarioInterface.findByEmail(email).orElse(null);
+    }
 }
