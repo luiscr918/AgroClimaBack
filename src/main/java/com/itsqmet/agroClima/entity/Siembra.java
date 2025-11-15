@@ -1,6 +1,8 @@
 package com.itsqmet.agroClima.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.itsqmet.agroClima.enums.EstadoS;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -25,8 +27,9 @@ public class Siembra {
     @Enumerated(EnumType.STRING)
     private EstadoS estado;
     //CARDINALIDAD
-    //con cultivo
+    // CULTIVO (PADRE)
     @ManyToOne
     @JoinColumn(name = "id_cultivo")
+    @JsonBackReference(value = "cultivo-siembras")
     private Cultivo cultivo;
 }

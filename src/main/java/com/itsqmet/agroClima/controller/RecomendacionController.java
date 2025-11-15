@@ -41,7 +41,7 @@ public class RecomendacionController {
             Recomendacion recomendacionExistente = recomendacionOptional.get();
             recomendacionExistente.setMensaje(recomendacion.getMensaje());
             recomendacionExistente.setTipo(recomendacion.getTipo());
-            recomendacionExistente.setFecha_generacion(recomendacion.getFecha_generacion());
+            recomendacionExistente.setFechaGeneracion(recomendacion.getFechaGeneracion());
             recomendacionExistente.setUsuario(recomendacion.getUsuario());
             return recomendacionService.guardarRecomendacion(recomendacionExistente);
         }

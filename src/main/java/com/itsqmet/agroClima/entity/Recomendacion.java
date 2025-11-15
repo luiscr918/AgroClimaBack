@@ -1,6 +1,8 @@
 package com.itsqmet.agroClima.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,10 +25,11 @@ public class Recomendacion {
     //fecha de generacion
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date fecha_generacion;
+    private Date fechaGeneracion;
     //CARDINALIDAD
-    //con usuario
+    // USUARIO (PADRE)
     @ManyToOne
     @JoinColumn(name = "id_usuario")
+    @JsonBackReference(value = "usuario-recomendaciones")
     private Usuario usuario;
 }

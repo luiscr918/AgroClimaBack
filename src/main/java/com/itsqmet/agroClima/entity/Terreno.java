@@ -1,5 +1,8 @@
 package com.itsqmet.agroClima.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,22 +28,19 @@ public class Terreno {
     //tipo suelo
     private String tipoSuelo;
     //CARDINALIDAD
-    //con usuario
+    // USUARIO (PADRE)
     @ManyToOne
     @JoinColumn(name = "id_usuario")
+    @JsonBackReference(value = "usuario-terrenos")
     private Usuario usuario;
-    //con cultivos
-    @OneToMany(
-            mappedBy = "terreno",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+
+    // CULTIVOS (HIJO)
+    @OneToMany(mappedBy = "terreno", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "terreno-cultivos")
     private List<Cultivo> cultivos;
-    //con pronostico
-    @OneToMany(
-            mappedBy = "terreno",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+
+    // PRONOSTICOS (HIJO)
+    @OneToMany(mappedBy = "terreno", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "terreno-pronosticos")
     private List<Pronostico> pronosticos;
 }

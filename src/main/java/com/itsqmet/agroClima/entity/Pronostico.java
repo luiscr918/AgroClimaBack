@@ -1,6 +1,8 @@
 package com.itsqmet.agroClima.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,8 +38,9 @@ public class Pronostico {
     //descripcion
     private String descripcion;
     //CARDINALIDAD
-    //con terreno
+    // TERRENO (PADRE)
     @ManyToOne
     @JoinColumn(name = "id_terreno")
+    @JsonBackReference(value = "terreno-pronosticos")
     private Terreno terreno;
 }

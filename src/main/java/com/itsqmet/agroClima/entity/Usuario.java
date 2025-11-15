@@ -1,5 +1,6 @@
 package com.itsqmet.agroClima.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.itsqmet.agroClima.enums.Rol;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -32,8 +33,9 @@ public class Usuario {
     private String email;
     //contraseña
     @Pattern(
-            regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
-            message = "La contraseña debe tener mínimo 8 caracteres, incluir mayúscula, minúscula, número y caracter especial")
+            regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^a-zA-Z0-9]).{8,}$",
+            message = "La contraseña debe tener mínimo 8 caracteres, incluir mayúscula, minúscula, número y caracter especial"
+    )
     private  String password;
     //telefono
     @Pattern(
@@ -44,18 +46,11 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Rol rol;
     //CARDINALIDAD
-    //con recomendaciones
-    @OneToMany(
-            mappedBy = "usuario",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<Recomendacion> recomendaciones;
-    //con terreno
-    @OneToMany(
-            mappedBy = "usuario",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "usuario-terrenos")
     private List<Terreno> terrenos;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "usuario-recomendaciones")
+    private List<Recomendacion> recomendaciones;
 }
