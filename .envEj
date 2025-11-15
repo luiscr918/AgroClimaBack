@@ -1,0 +1,18 @@
+# Nombre de la aplicación
+SPRING_APPLICATION_NAME=agroClima
+
+# Configuración de la base de datos
+SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/tu_base_de_datos
+SPRING_DATASOURCE_USERNAME=usuario_db
+SPRING_DATASOURCE_PASSWORD=contraseña_db
+
+# Configuración de JPA/Hibernate
+SPRING_JPA_HIBERNATE_DDL_AUTO=update
+SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
+
+# JWT
+JWT_SECRET=una_clave_segura_aqui
+JWT_EXPIRATION_MS=86400000
+
+# URL del frontend
+FRONTEND_URL=http://localhost:5173

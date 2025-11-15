@@ -2,6 +2,7 @@ package com.itsqmet.agroClima.config;
 
 import com.itsqmet.agroClima.security.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -42,10 +43,12 @@ public class SecurityConfig {
     }
 
     // Bean que define la configuración global de CORS
+    @Value("${FRONTEND_URL}")
+    private String frontendUrl;
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200")); // tu front
+        configuration.setAllowedOrigins(List.of(frontendUrl)); // tu front
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true); // importante para Authorization header
