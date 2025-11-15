@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/siembras")
-@CrossOrigin(origins = "http://localhost:4200")
 public class SiembraController {
     @Autowired
     private SiembraService siembraService;

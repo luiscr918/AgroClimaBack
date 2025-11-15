@@ -3,6 +3,7 @@ package com.itsqmet.agroClima.controller;
 import com.itsqmet.agroClima.dto.AuthRequest;
 import com.itsqmet.agroClima.dto.AuthResponse;
 import com.itsqmet.agroClima.dto.RegistroRequest;
+import com.itsqmet.agroClima.dto.UsuarioDTO;
 import com.itsqmet.agroClima.entity.Usuario;
 import com.itsqmet.agroClima.enums.Rol;
 import com.itsqmet.agroClima.repository.UsuarioInterface;
@@ -42,14 +43,26 @@ public class AuthController {
         if (opt.isEmpty()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", "Usuario no existe"));
         }
+
         Usuario usuario = opt.get();
+
         if (!passwordEncoder.matches(req.getPassword(), usuario.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", "Contraseña incorrecta"));
         }
+
         UserDetails uds = userDetailsService.loadUserByUsername(usuario.getEmail());
         String token = jwtUtil.generateToken(uds);
-        return ResponseEntity.ok(new AuthResponse(token));
+
+        // Mapear a DTO
+        UsuarioDTO usuarioDTO = new UsuarioDTO(
+                usuario.getId(),
+                usuario.getEmail(),
+                usuario.getRol()
+        );
+
+        return ResponseEntity.ok(new AuthResponse(token, usuarioDTO));
     }
+
 
     // REGISTRO
     @PostMapping("/register")

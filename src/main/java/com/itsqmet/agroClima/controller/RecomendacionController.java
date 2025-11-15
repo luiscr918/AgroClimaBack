@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/recomendaciones")
-@CrossOrigin(origins = "http://localhost:4200")
 public class RecomendacionController {
     @Autowired
     private RecomendacionService recomendacionService;

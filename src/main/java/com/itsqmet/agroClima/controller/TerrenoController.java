@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/terrenos")
-@CrossOrigin(origins = "http://localhost:4200")
 public class TerrenoController {
     @Autowired
     private TerrenoService terrenoService;

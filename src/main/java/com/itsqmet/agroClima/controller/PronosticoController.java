@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/pronosticos")
-@CrossOrigin(origins = "http://localhost:4200")
 public class PronosticoController {
     @Autowired
     private PronosticoService pronosticoService;
