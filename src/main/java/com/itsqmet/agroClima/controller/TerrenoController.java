@@ -42,9 +42,6 @@ public class TerrenoController {
             terrenoExistente.setTamanioHectareas(terreno.getTamanioHectareas());
             terrenoExistente.setUbicacion(terreno.getUbicacion());
             terrenoExistente.setTipoSuelo(terreno.getTipoSuelo());
-            terrenoExistente.setCultivos(terreno.getCultivos());
-            terrenoExistente.setPronosticos(terreno.getPronosticos());
-            terrenoExistente.setUsuario(terreno.getUsuario());
             return terrenoService.guardarTerreno(terrenoExistente);
         }
         return null;

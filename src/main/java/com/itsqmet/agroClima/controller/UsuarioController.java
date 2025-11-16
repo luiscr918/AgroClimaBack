@@ -38,8 +38,6 @@ public class UsuarioController {
             usuarioExistente.setPassword(usuario.getPassword());
             usuarioExistente.setTelefono(usuario.getTelefono());
             usuarioExistente.setRol(usuario.getRol());
-            usuarioExistente.setRecomendaciones(usuario.getRecomendaciones());
-            usuarioExistente.setTerrenos(usuario.getTerrenos());
             return usuarioService.guardarUsuario(usuarioExistente);
         }
         return null;

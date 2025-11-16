@@ -42,8 +42,6 @@ public class CultivoController {
             cultivoExistente.setTipo(cultivo.getTipo());
             cultivoExistente.setCicloDias(cultivo.getCicloDias());
             cultivoExistente.setTemporadaOptima(cultivo.getTemporadaOptima());
-            cultivoExistente.setSiembras(cultivo.getSiembras());
-            cultivoExistente.setTerreno(cultivo.getTerreno());
             return cultivoService.guardarCultivo(cultivoExistente);
         }
         return null;

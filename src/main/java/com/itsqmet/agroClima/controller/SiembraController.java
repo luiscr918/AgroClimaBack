@@ -40,7 +40,6 @@ public class SiembraController {
             Siembra siembraExistente = siembraOptional.get();
             siembraExistente.setFechaSiembra(siembra.getFechaSiembra());
             siembraExistente.setEstado(siembra.getEstado());
-            siembraExistente.setCultivo(siembra.getCultivo());
             return siembraService.guardarSiembra(siembraExistente);
         }
         return null;

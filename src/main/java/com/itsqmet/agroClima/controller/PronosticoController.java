@@ -44,7 +44,6 @@ public class PronosticoController {
             pronosticoExistente.setPrecipitacion(pronostico.getPrecipitacion());
             pronosticoExistente.setHumedad(pronostico.getHumedad());
             pronosticoExistente.setDescripcion(pronostico.getDescripcion());
-            pronosticoExistente.setTerreno(pronostico.getTerreno());
             return pronosticoService.guardarPronostico(pronosticoExistente);
         }
         return null;
