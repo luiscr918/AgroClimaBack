@@ -1,5 +1,6 @@
 package com.itsqmet.agroClima.controller;
 
+import com.itsqmet.agroClima.entity.Cultivo;
 import com.itsqmet.agroClima.entity.Siembra;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -49,6 +50,11 @@ public class SiembraController {
     @DeleteMapping("/{id}")
     public void eliminarSiembra(@PathVariable Long id) {
         siembraService.eliminarSiembra(id);
+    }
+    //obtener siembras por cultivo
+    @GetMapping("/cultivo/{cultivoId}")
+    public List<Siembra> obtenerSiembrasPorCultivo(@PathVariable Long cultivoId) {
+        return siembraService.obtenerSiembrasPorCultivo(cultivoId);
     }
 
 }

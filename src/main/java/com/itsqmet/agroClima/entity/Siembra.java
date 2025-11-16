@@ -3,6 +3,7 @@ package com.itsqmet.agroClima.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.itsqmet.agroClima.enums.EstadoS;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -32,4 +33,9 @@ public class Siembra {
     @JoinColumn(name = "id_cultivo")
     @JsonBackReference(value = "cultivo-siembras")
     private Cultivo cultivo;
+    // Getter transitorio para JSON
+    @JsonProperty("cultivoId")
+    public Long getCultivoId() {
+        return cultivo != null ? cultivo.getId() : null;
+    }
 }

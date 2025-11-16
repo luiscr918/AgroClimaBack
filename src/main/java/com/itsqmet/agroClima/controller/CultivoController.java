@@ -1,6 +1,7 @@
 package com.itsqmet.agroClima.controller;
 
 import com.itsqmet.agroClima.entity.Cultivo;
+import com.itsqmet.agroClima.entity.Terreno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.itsqmet.agroClima.service.CultivoService;
@@ -51,6 +52,11 @@ public class CultivoController {
     @DeleteMapping("/{id}")
     public void eliminarCultivo(@PathVariable Long id) {
         cultivoService.eliminarCultivo(id);
+    }
+    //obtener cultivos por terreno
+    @GetMapping("/terreno/{terrenoId}")
+    public List<Cultivo> obtenerCultivosPorTerreno(@PathVariable Long terrenoId) {
+        return cultivoService.obtenerCultivosPorTerreno(terrenoId);
     }
 
 }

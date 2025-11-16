@@ -1,5 +1,6 @@
 package com.itsqmet.agroClima.service;
 
+import com.itsqmet.agroClima.entity.Cultivo;
 import com.itsqmet.agroClima.entity.Siembra;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,9 @@ public class SiembraService {
     //eliminar siembra
     public void eliminarSiembra(Long id){
         siembraInterface.deleteById(id);
+    }
+    //obtener las siembras por cultivo
+    public List<Siembra> obtenerSiembrasPorCultivo(Long cultivoId) {
+        return siembraInterface.findByCultivo_Id(cultivoId);
     }
 }

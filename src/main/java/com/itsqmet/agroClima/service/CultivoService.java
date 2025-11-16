@@ -1,6 +1,7 @@
 package com.itsqmet.agroClima.service;
 
 import com.itsqmet.agroClima.entity.Cultivo;
+import com.itsqmet.agroClima.entity.Terreno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.itsqmet.agroClima.repository.CultivoInterface;
@@ -27,5 +28,9 @@ public class CultivoService {
     //eliminar cultivo
     public void eliminarCultivo(Long id){
         cultivoInterface.deleteById(id);
+    }
+    //obtener los cultivos por terreno
+    public List<Cultivo> obtenerCultivosPorTerreno(Long terrenoId) {
+        return cultivoInterface.findByTerreno_Id(terrenoId);
     }
 }

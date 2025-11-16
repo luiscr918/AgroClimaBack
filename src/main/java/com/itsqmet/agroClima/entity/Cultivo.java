@@ -3,6 +3,7 @@ package com.itsqmet.agroClima.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,7 @@ public class Cultivo {
     private String temporadaOptima;
     //CARNDINALIDAD
     // TERRENO (PADRE)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_terreno")
     @JsonBackReference(value = "terreno-cultivos")
     private Terreno terreno;
@@ -36,5 +37,9 @@ public class Cultivo {
     @OneToMany(mappedBy = "cultivo", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference(value = "cultivo-siembras")
     private List<Siembra> siembras;
-
+    // Getter transitorio para JSON
+    @JsonProperty("terrenoId")
+    public Long getTerrenoId() {
+        return terreno != null ? terreno.getId() : null;
+    }
 }
