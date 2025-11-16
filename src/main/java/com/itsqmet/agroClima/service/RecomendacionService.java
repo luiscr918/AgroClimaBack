@@ -1,5 +1,6 @@
 package com.itsqmet.agroClima.service;
 
+import com.itsqmet.agroClima.entity.Pronostico;
 import com.itsqmet.agroClima.entity.Recomendacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,10 @@ public class RecomendacionService {
     //eliminar recomendacion
     public void eliminarRecomendacion(Long id){
         recomendacionInterface.deleteById(id);
+    }
+
+    //obtener las recomendaciones por usuario
+    public List<Recomendacion> obtenerRecomendacionesPorUsuario(Long usuarioId) {
+        return recomendacionInterface.findByUsuarioId(usuarioId);
     }
 }

@@ -1,6 +1,7 @@
 package com.itsqmet.agroClima.controller;
 
 import com.itsqmet.agroClima.entity.Pronostico;
+import com.itsqmet.agroClima.entity.Terreno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.itsqmet.agroClima.service.PronosticoService;
@@ -54,5 +55,9 @@ public class PronosticoController {
     public void eliminarPronostico(@PathVariable Long id) {
         pronosticoService.eliminarPronostico(id);
     }
-
+    //obtener pronosticos por terreno
+    @GetMapping("/terreno/{terrenoId}")
+    public List<Pronostico> obtenerPronosticosPorTerreno(@PathVariable Long terrenoId) {
+        return pronosticoService.obtenerPronosticosPorTerreno(terrenoId);
+    }
 }

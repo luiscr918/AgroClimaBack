@@ -1,5 +1,6 @@
 package com.itsqmet.agroClima.controller;
 
+import com.itsqmet.agroClima.entity.Pronostico;
 import com.itsqmet.agroClima.entity.Recomendacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +51,11 @@ public class RecomendacionController {
     @DeleteMapping("/{id}")
     public void eliminarRecomendacion(@PathVariable Long id) {
         recomendacionService.eliminarRecomendacion(id);
+    }
+    //obtener recomendaciones por usuario
+    @GetMapping("/usuario/{usuarioId}")
+    public List<Recomendacion> obtenerRecomendacionesPorUsuario(@PathVariable Long usuarioId) {
+        return recomendacionService.obtenerRecomendacionesPorUsuario(usuarioId);
     }
 
 }

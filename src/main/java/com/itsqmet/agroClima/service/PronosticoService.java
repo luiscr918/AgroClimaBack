@@ -1,6 +1,7 @@
 package com.itsqmet.agroClima.service;
 
 import com.itsqmet.agroClima.entity.Pronostico;
+import com.itsqmet.agroClima.entity.Terreno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.itsqmet.agroClima.repository.PronosticoInterface;
@@ -27,5 +28,9 @@ public class PronosticoService {
     //eliminar pronostico
     public void eliminarPronostico(Long id){
         pronosticoInterface.deleteById(id);
+    }
+    //obtener los pronostico por terreno
+    public List<Pronostico> obtenerPronosticosPorTerreno(Long terrenoId) {
+        return pronosticoInterface.findByTerrenoId(terrenoId);
     }
 }
