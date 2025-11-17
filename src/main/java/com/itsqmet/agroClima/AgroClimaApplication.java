@@ -26,6 +26,7 @@ public class AgroClimaApplication {
         setPropertyIfPresent("jwt.expiration-ms", dotenv.get("JWT_EXPIRATION_MS"));
         // Agregar FRONTEND_URL para que Spring pueda inyectarlo
         setPropertyIfPresent("FRONTEND_URL", dotenv.get("FRONTEND_URL"));
+        setPropertyIfPresent("API_KEY_GOOGLE", dotenv.get("API_KEY_GOOGLE"));
         // Iniciar la aplicación
         SpringApplication.run(AgroClimaApplication.class, args);
     }
